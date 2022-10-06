@@ -1,5 +1,5 @@
 package com.example.backendproject.entities;
 
-public enum Domaine {
+public enum Option {
     SE,SAE,TWIN,SIM
 }

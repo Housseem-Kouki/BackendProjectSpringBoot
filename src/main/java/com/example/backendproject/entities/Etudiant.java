@@ -4,6 +4,8 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
+
 @Entity
 @Getter
 @Setter
@@ -16,6 +18,16 @@ public class Etudiant implements Serializable {
     private String prenomE ;
     private String nomE ;
     @Enumerated(EnumType.STRING)
-    private Domaine domaine ;
+    private Option opt ;
+
+    @ManyToOne
+    private Departement departement;
+
+    @OneToMany(mappedBy = "etudiant")
+    private Set<Contrat> contrats;
+
+    @ManyToMany
+    private  Set<Equipe> equipes;
+
 
 }

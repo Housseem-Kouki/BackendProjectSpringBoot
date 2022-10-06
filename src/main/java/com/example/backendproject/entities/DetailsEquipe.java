@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -22,4 +19,7 @@ public class DetailsEquipe   implements Serializable {
     private  long idDetailsEquipe;
     private Integer salle;
     private String thematique;
+
+    @OneToOne(mappedBy = "detailsequipe")
+    private  Equipe equipe;
 }

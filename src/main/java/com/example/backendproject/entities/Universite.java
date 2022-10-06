@@ -2,11 +2,9 @@ package com.example.backendproject.entities;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -18,4 +16,7 @@ public class Universite implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idUniversite;
     private String nomUniversite;
+
+    @OneToMany
+    private Set<Departement> departements;
 }

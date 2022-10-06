@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -20,4 +21,10 @@ public class Equipe implements Serializable {
     private String nomEquipe;
     @Enumerated(EnumType.STRING)
     private Niveau niveau;
+
+    @OneToOne
+    private  DetailsEquipe detailsequipe;
+
+    @ManyToMany(mappedBy = "equipes")
+    private Set<Etudiant> etudiants;
 }
