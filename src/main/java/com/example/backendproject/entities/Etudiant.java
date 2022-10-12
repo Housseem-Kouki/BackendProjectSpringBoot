@@ -14,9 +14,12 @@ import java.util.Set;
 public class Etudiant implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private long idEtudiant ;
+    private long idEtudiant ;
+
     private String prenomE ;
+
     private String nomE ;
+    
     @Enumerated(EnumType.STRING)
     private Option opt ;
 
