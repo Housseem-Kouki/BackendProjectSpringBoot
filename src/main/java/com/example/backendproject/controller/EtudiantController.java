@@ -49,8 +49,8 @@ public class EtudiantController {
 
     @GetMapping("/getEtudiantById/{id}")
     @ResponseBody
-    public void  getEtudiantById(@PathVariable("id") int id){
-        iEtudiantService.getEtudiantById(id);
+    public Etudiant  getEtudiantById(@PathVariable("id") int id){
+      return   iEtudiantService.getEtudiantById(id);
     }
 
 
