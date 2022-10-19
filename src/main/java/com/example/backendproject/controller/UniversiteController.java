@@ -3,12 +3,14 @@ package com.example.backendproject.controller;
 
 import com.example.backendproject.entities.Universite;
 import com.example.backendproject.services.IUniversiteService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@AllArgsConstructor
 public class UniversiteController {
     @Autowired
     IUniversiteService iUniversiteService;

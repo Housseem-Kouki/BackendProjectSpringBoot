@@ -4,13 +4,15 @@ import com.example.backendproject.entities.Departement;
 import com.example.backendproject.entities.DetailsEquipe;
 import com.example.backendproject.entities.Equipe;
 import com.example.backendproject.repository.DetailsEquipeRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
+@AllArgsConstructor
 public class DetailsEquipeServiceImp implements IDetailsEquipeService{
-    @Autowired
+
     DetailsEquipeRepository detailsEquipeRepository;
 
 

@@ -3,14 +3,16 @@ package com.example.backendproject.controller;
 
 import com.example.backendproject.entities.DetailsEquipe;
 import com.example.backendproject.services.IDetailsEquipeService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@AllArgsConstructor
 public class DetailsEquipesController {
-    @Autowired
+
     IDetailsEquipeService iDetailsEquipeService;
 
     @GetMapping("/AllDetailsEquipes")

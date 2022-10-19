@@ -2,15 +2,17 @@ package com.example.backendproject.controller;
 
 import com.example.backendproject.entities.Etudiant;
 import com.example.backendproject.services.IEtudiantService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@AllArgsConstructor
 public class EtudiantController {
 
-    @Autowired
+
     IEtudiantService iEtudiantService;
 
     @GetMapping
