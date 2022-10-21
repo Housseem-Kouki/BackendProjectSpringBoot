@@ -1,5 +1,7 @@
 package com.example.backendproject.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +19,7 @@ import java.util.Set;
 public class Equipe implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  long idEquipe ;
+    private  int idEquipe ;
     private String nomEquipe;
     @Enumerated(EnumType.STRING)
     private Niveau niveau;
@@ -25,6 +27,7 @@ public class Equipe implements Serializable {
     @OneToOne
     private  DetailsEquipe detailsequipe;
 
-    @ManyToMany(mappedBy = "equipes")
-    private Set<Etudiant> etudiants;
+    @ManyToMany(mappedBy = "equipes" , cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JsonIgnore
+    private Set<Etudiant> etudiant;
 }

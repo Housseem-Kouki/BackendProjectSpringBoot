@@ -1,5 +1,6 @@
 package com.example.backendproject.controller;
 
+import com.example.backendproject.entities.DetailsEquipe;
 import com.example.backendproject.entities.Etudiant;
 import com.example.backendproject.services.IEtudiantService;
 import lombok.AllArgsConstructor;
@@ -56,6 +57,9 @@ public class EtudiantController {
     }
 
 
-
+    @GetMapping("/getEtudiantByPrenom/{prenomE}")
+    public Etudiant getEtudiantByPrenom(@PathVariable("prenomE")String prenomE){
+        return iEtudiantService.findPrenomEContains(prenomE);
+    }
 
 }

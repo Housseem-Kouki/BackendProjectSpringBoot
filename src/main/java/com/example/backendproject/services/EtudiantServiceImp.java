@@ -19,7 +19,7 @@ public class EtudiantServiceImp implements  IEtudiantService {
     }
 
     @Override
-    public Etudiant getEtudiantById(long id) {
+    public Etudiant getEtudiantById(int id) {
         return etudiantRepository.findById(id).orElse(null);
     }
 
@@ -34,7 +34,12 @@ public class EtudiantServiceImp implements  IEtudiantService {
     }
 
     @Override
-    public void deleteEtudiant(long id) {
+    public void deleteEtudiant(int id) {
     etudiantRepository.deleteById(id);
+    }
+
+    @Override
+    public Etudiant findPrenomEContains(String prenomE) {
+        return etudiantRepository.findByPrenomEContains(prenomE);
     }
 }

@@ -37,13 +37,13 @@ public class ContratController {
 
     @DeleteMapping("/deleteContrat/{id}")
     @ResponseBody
-    public void deleteContrat(@PathVariable("id")long id){
+    public void deleteContrat(@PathVariable("id")int id){
         iContratService.deleteContrat(id);
     }
 
     @GetMapping("/getContratById/{id}")
     @ResponseBody
-    public Contrat getContratById(@PathVariable("id")long id){
+    public Contrat getContratById(@PathVariable("id")int id){
         return iContratService.getContratById(id);
     }
 }

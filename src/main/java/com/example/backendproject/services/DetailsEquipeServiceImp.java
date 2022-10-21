@@ -22,7 +22,7 @@ public class DetailsEquipeServiceImp implements IDetailsEquipeService{
     }
 
     @Override
-    public DetailsEquipe getDetailsEquipeById(long id) {
+    public DetailsEquipe getDetailsEquipeById(int id) {
         return detailsEquipeRepository.findById(id).orElse(null);
     }
 
@@ -37,7 +37,12 @@ public class DetailsEquipeServiceImp implements IDetailsEquipeService{
     }
 
     @Override
-    public void deleteDetailsEquipe(long id) {
+    public void deleteDetailsEquipe(int id) {
         detailsEquipeRepository.deleteById(id);
+    }
+
+    @Override
+    public List<DetailsEquipe> findByThematiqueLike(String thematique) {
+        return detailsEquipeRepository.findByThematiqueLike(thematique);
     }
 }

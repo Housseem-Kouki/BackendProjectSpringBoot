@@ -42,13 +42,13 @@ public class DepartementController {
 
     @DeleteMapping("/deleteDepartement/{id}")
     @ResponseBody
-    public void deleteDepartement(@PathVariable("id")long id){
+    public void deleteDepartement(@PathVariable("id")int id){
         iDepartementService.deleteDepartement(id);
     }
 
     @GetMapping("/getDepartementById/{id}")
     @ResponseBody
-    public Departement getDepartementById(@PathVariable("id")long id){
+    public Departement getDepartementById(@PathVariable("id")int id){
         return iDepartementService.getDepartementById(id);
     }
 

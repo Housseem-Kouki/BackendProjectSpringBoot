@@ -37,14 +37,18 @@ public class DetailsEquipesController {
 
     @DeleteMapping("/deleteDetailsEquipe/{id}")
     @ResponseBody
-    public void deleteDetailsEquipe(@PathVariable("id")long id){
+    public void deleteDetailsEquipe(@PathVariable("id")int id){
         iDetailsEquipeService.deleteDetailsEquipe(id);
     }
 
     @GetMapping("/getDetailsEquipeById/{id}")
     @ResponseBody
-    public DetailsEquipe getDetailsEquipeById(@PathVariable("id")long id){
+    public DetailsEquipe getDetailsEquipeById(@PathVariable("id")int id){
         return iDetailsEquipeService.getDetailsEquipeById(id);
     }
 
+    @GetMapping("/getDetailByThematique/{thematique}")
+    public List<DetailsEquipe> getDetailByThematique(@PathVariable("thematique")String thematique){
+        return iDetailsEquipeService.findByThematiqueLike(thematique);
+    }
 }

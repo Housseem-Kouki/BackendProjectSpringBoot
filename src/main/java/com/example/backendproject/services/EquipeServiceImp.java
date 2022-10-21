@@ -1,6 +1,7 @@
 package com.example.backendproject.services;
 
 import com.example.backendproject.entities.Equipe;
+import com.example.backendproject.entities.Etudiant;
 import com.example.backendproject.repository.EquipeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class EquipeServiceImp implements IEquipeService{
     }
 
     @Override
-    public Equipe getEquipeById(long id) {
+    public Equipe getEquipeById(int id) {
         return equipeRepository.findById(id).orElse(null);
     }
 
@@ -34,7 +35,24 @@ public class EquipeServiceImp implements IEquipeService{
     }
 
     @Override
-    public void deleteEquipe(long id) {
+    public void deleteEquipe(int id) {
         equipeRepository.deleteById(id);
     }
+
+    @Override
+    public List<Equipe> findByEtudiantIdEtudiant(int idEtudiant) {
+        return equipeRepository.findByEtudiantIdEtudiant(idEtudiant);
+    }
+
+    @Override
+    public List<Equipe> findByEtudiantIdEtudiantAndDetailsequipeThematiqueNotNull(int idEtudiant) {
+        return equipeRepository.findByEtudiantIdEtudiantAndDetailsequipeThematiqueNotNull(idEtudiant);
+    }
+
+    @Override
+    public List<Equipe> findByEtudiantIdEtudiantAndEtudiantDepartementIdDepart(int idEtudiant, int idDepart) {
+        return equipeRepository.findByEtudiantIdEtudiantAndEtudiantDepartementIdDepartement(idEtudiant,idDepart);
+    }
+
+
 }

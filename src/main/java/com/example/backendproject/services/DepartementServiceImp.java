@@ -20,7 +20,7 @@ public class DepartementServiceImp implements IDepartementService {
     }
 
     @Override
-    public Departement getDepartementById(long id) {
+    public Departement getDepartementById(int id) {
         return departementRepository.findById(id).orElse(null);
     }
 
@@ -35,7 +35,7 @@ public class DepartementServiceImp implements IDepartementService {
     }
 
     @Override
-    public void deleteDepartement(long id) {
+    public void deleteDepartement(int id) {
         departementRepository.deleteById(id);
     }
 }

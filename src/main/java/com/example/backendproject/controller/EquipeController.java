@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 public class EquipeController {
-    @Autowired
+
     IEquipeService iEquipeService;
 
 
@@ -39,13 +39,36 @@ public class EquipeController {
 
     @DeleteMapping("/deleteEquipe/{id}")
     @ResponseBody
-    public void deleteEquipe(@PathVariable("id")long id){
+    public void deleteEquipe(@PathVariable("id")int id){
         iEquipeService.deleteEquipe(id);
     }
 
     @GetMapping("/getEquipeById/{id}")
     @ResponseBody
-    public Equipe getEquipeById(@PathVariable("id")long id){
+    public Equipe getEquipeById(@PathVariable("id")int id){
         return iEquipeService.getEquipeById(id);
     }
+
+
+    @GetMapping("/getListEquipeEtudiant/{idEtudiant}")
+    @ResponseBody
+    public List<Equipe> getListEquipeEtudiant(@PathVariable("idEtudiant") int idEtudiant ){
+        return iEquipeService.findByEtudiantIdEtudiant(idEtudiant);
+    }
+
+    @GetMapping("/getListEquipeEtudiantThematiqueNotNull/{idEtudiant}")
+    @ResponseBody
+    public List<Equipe>findByEtudiantIdEtudiantAndDetailsequipeThematiqueNotNull(@PathVariable("idEtudiant") int idEtudiant){
+        return iEquipeService.findByEtudiantIdEtudiantAndDetailsequipeThematiqueNotNull(idEtudiant);
+    }
+
+    @GetMapping("/ListEquipeEtudAndDepartement")
+    @ResponseBody
+    public   List<Equipe> findByEtudiantIdEtudiantAndEtudiantDepartementIdDepartement(@RequestParam("idEtudiant") int idEtudiant, @RequestParam("idDepart")  int idDepart){
+        return iEquipeService.findByEtudiantIdEtudiantAndEtudiantDepartementIdDepart(idEtudiant,idDepart);
+    }
+
+
 }
+
+

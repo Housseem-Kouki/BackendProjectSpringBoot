@@ -1,5 +1,8 @@
 package com.example.backendproject.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,9 +20,10 @@ import java.util.Set;
 public class Departement implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idDepartement;
+    private int idDepartement;
     private  String nomDepartement;
 
     @OneToMany(mappedBy = "departement")
+    @JsonIgnore
     private Set<Etudiant> etudiants;
 }

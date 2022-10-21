@@ -1,5 +1,6 @@
 package com.example.backendproject.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -14,9 +15,10 @@ import java.util.Set;
 public class Universite implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idUniversite;
+    private int idUniversite;
     private String nomUniversite;
 
     @OneToMany
+    @JsonIgnore
     private Set<Departement> departements;
 }

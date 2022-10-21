@@ -1,5 +1,7 @@
 package com.example.backendproject.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -14,7 +16,7 @@ import java.util.Set;
 public class Etudiant implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idEtudiant ;
+    private int idEtudiant ;
 
     private String prenomE ;
 
@@ -24,12 +26,15 @@ public class Etudiant implements Serializable {
     private Option opt ;
 
     @ManyToOne
+    @JsonIgnore
     private Departement departement;
 
     @OneToMany(mappedBy = "etudiant")
+    @JsonIgnore
     private Set<Contrat> contrats;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
+    @JsonIgnore
     private  Set<Equipe> equipes;
 
 

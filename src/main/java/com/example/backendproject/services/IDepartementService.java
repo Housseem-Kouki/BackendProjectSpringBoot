@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface IDepartementService {
     public List<Departement> getAllDepartements();
-    public Departement getDepartementById(long id);
+    public Departement getDepartementById(int id);
     public Departement addDepartement(Departement departement);
     public Departement updateDepartement(Departement departement);
-    public void deleteDepartement(long id);
+    public void deleteDepartement(int id);
 }

@@ -16,7 +16,7 @@ public class UniversiteServiceImp implements IUniversiteService {
     }
 
     @Override
-    public Universite getUniversiteById(long id) {
+    public Universite getUniversiteById(int id) {
         return universiteRepository.findById(id).orElse(null);
     }
 
@@ -31,7 +31,7 @@ public class UniversiteServiceImp implements IUniversiteService {
     }
 
     @Override
-    public void deleteUniversite(long id) {
+    public void deleteUniversite(int id) {
         universiteRepository.deleteById(id);
     }
 }

@@ -7,8 +7,11 @@ import java.util.List;
 
 public interface IDetailsEquipeService {
     public List<DetailsEquipe> getAllDetailsEquipe();
-    public DetailsEquipe getDetailsEquipeById(long id);
+    public DetailsEquipe getDetailsEquipeById(int id);
     public DetailsEquipe addDetailsEquipe(DetailsEquipe detailsEquipe);
     public DetailsEquipe updateDetailsEquipe(DetailsEquipe detailsEquipe);
-    public void deleteDetailsEquipe(long id);
+    public void deleteDetailsEquipe(int id);
+
+    public List<DetailsEquipe> findByThematiqueLike (String thematique);
+
 }

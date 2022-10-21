@@ -37,13 +37,13 @@ public class UniversiteController {
 
     @DeleteMapping("/deleteUniversite/{id}")
     @ResponseBody
-    public void deleteUniversite(@PathVariable("id")long id){
+    public void deleteUniversite(@PathVariable("id")int id){
         iUniversiteService.deleteUniversite(id);
     }
 
     @GetMapping("/getUniversiteById/{id}")
     @ResponseBody
-    public Universite getUniversiteById(@PathVariable("id")long id){
+    public Universite getUniversiteById(@PathVariable("id")int id){
         return iUniversiteService.getUniversiteById(id);
     }
 
