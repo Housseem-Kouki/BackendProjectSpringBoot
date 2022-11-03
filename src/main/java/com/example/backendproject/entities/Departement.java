@@ -23,7 +23,7 @@ public class Departement implements Serializable {
     private int idDepartement;
     private  String nomDepartement;
 
-    @OneToMany(mappedBy = "departement")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "departement")
     @JsonIgnore
     private Set<Etudiant> etudiants;
 }

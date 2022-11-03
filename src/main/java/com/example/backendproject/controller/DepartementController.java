@@ -1,6 +1,7 @@
 package com.example.backendproject.controller;
 
 import com.example.backendproject.entities.Departement;
+import com.example.backendproject.entities.Option;
 import com.example.backendproject.services.IDepartementService;
 import com.example.backendproject.services.IEtudiantService;
 import lombok.AllArgsConstructor;
@@ -51,5 +52,9 @@ public class DepartementController {
     public Departement getDepartementById(@PathVariable("id")int id){
         return iDepartementService.getDepartementById(id);
     }
-
+    @GetMapping("/retrieveDepartementByOptionEtudiant/{option}")
+    @ResponseBody
+    public List<Departement> retrieveDepartementByOptionEtudiant(@PathVariable("option") Option option){
+        return iDepartementService.retrieveDepartementByOptionEtudiant(option);
+    }
 }

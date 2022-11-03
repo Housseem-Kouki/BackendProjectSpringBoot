@@ -2,6 +2,8 @@ package com.example.backendproject.services;
 
 import com.example.backendproject.entities.Equipe;
 import com.example.backendproject.entities.Etudiant;
+import com.example.backendproject.entities.Niveau;
+import org.springframework.data.repository.query.Param;
 
 
 import java.util.List;
@@ -18,4 +20,8 @@ public interface IEquipeService {
     public List<Equipe>findByEtudiantIdEtudiantAndDetailsequipeThematiqueNotNull(int idEtudiant);
 
     public List<Equipe> findByEtudiantIdEtudiantAndEtudiantDepartementIdDepart(int idEtudiant,int idDepart);
+
+    List<Equipe> retriveEquipeByNiveauAndThematique(Niveau niveau ,String thematique);
+
+    void deleteEquipeByNiveau( Niveau niveau);
 }

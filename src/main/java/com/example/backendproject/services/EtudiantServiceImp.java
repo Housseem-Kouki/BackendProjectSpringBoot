@@ -1,6 +1,7 @@
 package com.example.backendproject.services;
 
 import com.example.backendproject.entities.Etudiant;
+import com.example.backendproject.entities.Option;
 import com.example.backendproject.repository.EtudiantRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +42,15 @@ public class EtudiantServiceImp implements  IEtudiantService {
     @Override
     public Etudiant findPrenomEContains(String prenomE) {
         return etudiantRepository.findByPrenomEContains(prenomE);
+    }
+
+    @Override
+    public void updateEtudiantByOption(Option option, int idEtudiant) {
+        etudiantRepository.updateEtudiantByOption(option , idEtudiant);
+    }
+
+    @Override
+    public List<Etudiant> retrieveEtudiantByEquipeThematique(String thematique) {
+        return etudiantRepository.retrieveEtudiantByEquipeThematique(thematique);
     }
 }

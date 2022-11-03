@@ -2,9 +2,11 @@ package com.example.backendproject.controller;
 
 
 import com.example.backendproject.entities.Equipe;
+import com.example.backendproject.entities.Niveau;
 import com.example.backendproject.services.IEquipeService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -69,6 +71,17 @@ public class EquipeController {
     }
 
 
+    @GetMapping("/retriveEquipeByNiveauAndThematique/{niveau}/{thematique}")
+    @ResponseBody
+    public   List<Equipe> retriveEquipeByNiveauAndThematique(@PathVariable("niveau") Niveau niveau, @PathVariable("thematique")  String thematique){
+        return iEquipeService.retriveEquipeByNiveauAndThematique(niveau,thematique);
+    }
+
+    @DeleteMapping("/deleteEquipeByNiveau/{niveau}")
+    @ResponseBody
+    public void deleteEquipeByNiveau( @PathVariable("niveau") Niveau niveau){
+        iEquipeService.deleteEquipeByNiveau(niveau);
+    }
 }
 
 

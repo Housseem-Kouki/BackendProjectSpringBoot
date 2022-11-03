@@ -1,6 +1,7 @@
 package com.example.backendproject.services;
 
 import com.example.backendproject.entities.Departement;
+import com.example.backendproject.entities.Option;
 import com.example.backendproject.repository.DepartementRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,10 @@ public class DepartementServiceImp implements IDepartementService {
     @Override
     public void deleteDepartement(int id) {
         departementRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Departement> retrieveDepartementByOptionEtudiant(Option option) {
+        return departementRepository.retrieveDepartementByOptionEtudiant(option);
     }
 }
