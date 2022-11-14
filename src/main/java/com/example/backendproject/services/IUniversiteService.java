@@ -10,4 +10,5 @@ public interface IUniversiteService {
     public Universite addUniversite(Universite universite);
     public Universite updateUniversite(Universite universite);
     public void deleteUniversite(int id);
+    public void assignUniversiteToDepartement(Integer idUniversite, Integer idDepartement);
 }

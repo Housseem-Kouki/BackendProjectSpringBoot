@@ -16,4 +16,11 @@ public interface IEtudiantService {
     void updateEtudiantByOption(Option option , int idEtudiant);
 
     List<Etudiant> retrieveEtudiantByEquipeThematique (String thematique);
+
+    public void assignEtudiantToDepartement (int etudiantId, int departementId) ;
+
+    Etudiant addAndAssignEtudiantToEquipeAndContract(Etudiant e, int idContrat,
+                                                     int idEquipe);
+
+    List<Etudiant> getEtudiantsByDepartement (int idDepartement);
 }

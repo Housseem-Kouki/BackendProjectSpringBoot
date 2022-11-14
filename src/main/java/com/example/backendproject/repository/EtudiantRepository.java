@@ -21,4 +21,7 @@ public interface EtudiantRepository extends JpaRepository<Etudiant,Integer> {
     @Query("update Etudiant et set et.opt =? 1 where et.idEtudiant =? 2 ")
     void updateEtudiantByOption(@PathVariable("option") Option option , @PathVariable("idEtudiant") int idEtudiant);
 
+    Etudiant findEtudiantByNomEAndPrenomE(String nomE , String PrenomE);
+
+    List<Etudiant> findEtudiantByDepartementIdDepartement(int idDepartement);
 }

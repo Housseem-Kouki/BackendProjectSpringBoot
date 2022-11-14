@@ -57,4 +57,9 @@ public class DepartementController {
     public List<Departement> retrieveDepartementByOptionEtudiant(@PathVariable("option") Option option){
         return iDepartementService.retrieveDepartementByOptionEtudiant(option);
     }
+
+    @GetMapping("/retrieveDepartementsByUniversite/{idUniversite}")
+    public List<Departement> retrieveDepartementsByUniversite(@PathVariable("idUniversite")int idUniversite){
+        return iDepartementService.retrieveDepartementsByUniversite(idUniversite);
+    }
 }

@@ -11,4 +11,6 @@ import java.util.List;
 public interface DepartementRepository extends JpaRepository<Departement,Integer> {
     @Query("SELECT d FROM Departement d , Etudiant e where d.idDepartement = e.departement.idDepartement and e.opt =? 1 ")
     List<Departement> retrieveDepartementByOptionEtudiant(@Param("option") Option option);
+
+
 }

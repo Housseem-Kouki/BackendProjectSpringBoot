@@ -33,7 +33,7 @@ public class Etudiant implements Serializable {
     @JsonIgnore
     private Set<Contrat> contrats;
 
-    @ManyToMany(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "etudiant" ,cascade = CascadeType.ALL , fetch = FetchType.EAGER)
     @JsonIgnore
     private  Set<Equipe> equipes;
 

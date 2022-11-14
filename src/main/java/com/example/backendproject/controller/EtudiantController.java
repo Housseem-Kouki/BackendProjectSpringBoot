@@ -74,4 +74,21 @@ public class EtudiantController {
       return   iEtudiantService.retrieveEtudiantByEquipeThematique(thematique);
     }
 
+    @PostMapping("/assignEtudiantToDepartement/{etudiantId}/{departementId}")
+    public void assignEtudiantToDepartement (@PathVariable("etudiantId")int etudiantId,@PathVariable("departementId") int departementId) {
+        iEtudiantService.assignEtudiantToDepartement(etudiantId,departementId);
+
+    }
+    @PostMapping("/addAndAssignEtudiantToEquipeAndContract/{idContrat}/{idEquipe}")
+    Etudiant addAndAssignEtudiantToEquipeAndContract(@RequestBody Etudiant e
+            ,@PathVariable("idContrat") Integer idContrat,@PathVariable("idEquipe")Integer idEquipe){
+
+    return iEtudiantService.addAndAssignEtudiantToEquipeAndContract(e,idContrat,idEquipe);
+    }
+
+    @GetMapping("/getEtudiantsByDepartement/{idDepartement}")
+    List<Etudiant> getEtudiantsByDepartement (@PathVariable("idDepartement")Integer idDepartement){
+        return iEtudiantService.getEtudiantsByDepartement(idDepartement);
+    }
+
 }

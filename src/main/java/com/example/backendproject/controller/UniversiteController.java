@@ -47,5 +47,10 @@ public class UniversiteController {
         return iUniversiteService.getUniversiteById(id);
     }
 
+    @PostMapping("/assignUniversiteToDepartement/{idUniversite}/{idDepartement}")
+    public void assignUniversiteToDepartement(@PathVariable("idUniversite") Integer idUniversite,
+                                                        @PathVariable("idDepartement") Integer idDepartement){
+    iUniversiteService.assignUniversiteToDepartement(idUniversite,idDepartement);
+    }
 
 }

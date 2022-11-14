@@ -13,4 +13,6 @@ public interface IDepartementService {
     public Departement updateDepartement(Departement departement);
     public void deleteDepartement(int id);
     List<Departement> retrieveDepartementByOptionEtudiant(Option option);
+
+    public List<Departement> retrieveDepartementsByUniversite(Integer idUniversite);
 }
