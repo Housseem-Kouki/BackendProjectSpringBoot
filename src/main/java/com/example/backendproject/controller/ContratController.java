@@ -56,7 +56,7 @@ public class ContratController {
     }
 
     @GetMapping("/getChiffreAffaireEntreDeuxDate")
-    public float getChiffreAffaireEntreDeuxDate(@RequestParam("startDate")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate,
+    public String getChiffreAffaireEntreDeuxDate(@RequestParam("startDate")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate,
                                                 @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @RequestParam("endDate") Date endDate){
      return  iContratService.getChiffreAffaireEntreDeuxDate(startDate,endDate);
     }

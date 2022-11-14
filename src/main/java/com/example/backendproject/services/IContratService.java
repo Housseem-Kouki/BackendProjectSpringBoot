@@ -14,7 +14,7 @@ public interface IContratService {
     public void deleteContrat(int id);
     Contrat affectContratToEtudiant (Contrat ce,String nomE ,String prenomE );
 
-    public float getChiffreAffaireEntreDeuxDate(Date startDate, Date endDate);
+    public String getChiffreAffaireEntreDeuxDate(Date startDate, Date endDate);
 
     Integer nbContratsValides(Date startDate, Date endDate);
 }

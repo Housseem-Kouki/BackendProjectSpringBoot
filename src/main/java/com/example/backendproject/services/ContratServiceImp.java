@@ -2,6 +2,7 @@ package com.example.backendproject.services;
 
 import com.example.backendproject.entities.Contrat;
 import com.example.backendproject.entities.Etudiant;
+import com.example.backendproject.entities.Specialite;
 import com.example.backendproject.repository.ContratRepository;
 import com.example.backendproject.repository.EtudiantRepository;
 import lombok.AllArgsConstructor;
@@ -54,19 +55,45 @@ public class ContratServiceImp implements IContratService{
     }
 
     @Override
-    public float getChiffreAffaireEntreDeuxDate(Date startDate, Date endDate) {
+    public String getChiffreAffaireEntreDeuxDate(Date startDate, Date endDate) {
         float chiffre=0;
+        float chiffreIA=0;
+        float chiffreRESAUX=0;
+        float chiffreCLOUD=0;
+        float chiffreSECURITE=0;
         List<Contrat> lc = contratRepository.ListContratBetweenToDate(startDate,endDate);
         for(Contrat c : lc){
+
+            if(c.getSpecialite().toString().equals("IA")){
+                chiffreIA = chiffreIA + c.getMontantC();
+                System.out.println("******** Ia ="+chiffreIA);
+            }
+            if(c.getSpecialite().toString().equals("CLOUD")){
+                chiffreCLOUD = chiffreCLOUD + c.getMontantC();
+                System.out.println("******** Ia ="+chiffreIA);
+            }
+            if(c.getSpecialite().toString().equals("SECURITE")){
+                chiffreCLOUD = chiffreCLOUD + c.getMontantC();
+                System.out.println("******** Ia ="+chiffreIA);
+            }
+            if(c.getSpecialite().toString().equals("RESEAUX")){
+                chiffreRESAUX = chiffreRESAUX + c.getMontantC();
+                System.out.println("******** Ia ="+chiffreIA);
+            }
             chiffre = chiffre + c.getMontantC();
-            
+
         }
-        return chiffre;
+        String ch ="Pour un contrat dont la spécialité est IA: "+chiffreIA+"Dt/mois\n" +
+                "Pour un contrat dont la spécialité est RESEAUX: "+chiffreRESAUX+"Dt/mois\n" +
+                "Pour un contrat dont la spécialité est CLOUD: "+chiffreCLOUD+"Dt/mois\n" +
+                "Pour un contrat dont la spécialité est SECURITE: "+chiffreSECURITE+"Dt/mois\n";
+        return ch;
     }
 
     @Override
     public Integer nbContratsValides(Date startDate, Date endDate) {
         int nbrContrat = 0;
+
         List<Contrat> lc = contratRepository.ListContratBetweenToDate(startDate,endDate);
         for(Contrat c : lc){
             if(c.getArchive() != true){
