@@ -7,6 +7,7 @@ import com.example.backendproject.repository.ContratRepository;
 import com.example.backendproject.repository.EtudiantRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -102,6 +103,32 @@ public class ContratServiceImp implements IContratService{
 
         }
         return nbrContrat;
+    }
+
+    @Override
+    public String retrieveAndUpdateStatusContrat() {
+
+        return null;
+    }
+
+
+    @Scheduled(fixedRate = 60000)
+    // @Scheduled(cron = "* * * 13 * * *")
+    public void fixedRateMethod() {
+
+        List<Contrat> contrats = contratRepository.ListeContratsApres15Jours();
+        String string ="" ;
+        for (Contrat c : contrats){
+
+          string += string +"id : " + c.getIdContrat()  +"\n"+
+                  " date fin" +c.getDateFinC()+"\n"
+                  +"Etudiant" + c.getEtudiant().getNomE()+"\n"
+                  +  "specialite" + c.getSpecialite()+"\n" ;
+
+         //   c.setArchive(true);
+        }
+        System.out.println("les contrats = "+string);
+
     }
 
 

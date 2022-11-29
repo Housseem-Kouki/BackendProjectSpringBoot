@@ -6,6 +6,7 @@ import com.example.backendproject.entities.Option;
 import com.example.backendproject.services.IEtudiantService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,6 +28,7 @@ public class EtudiantController {
     public List<Etudiant> getAllEtudiant(){
         return iEtudiantService.getAllEtudiants();
     }
+
 
     @PostMapping("/addEtudiant")
     @ResponseBody

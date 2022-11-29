@@ -29,7 +29,7 @@ public class Etudiant implements Serializable {
     @JsonIgnore
     private Departement departement;
 
-    @OneToMany(mappedBy = "etudiant")
+    @OneToMany(mappedBy = "etudiant" , fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Contrat> contrats;
 
