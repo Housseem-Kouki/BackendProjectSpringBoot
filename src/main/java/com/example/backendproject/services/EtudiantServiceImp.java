@@ -6,6 +6,7 @@ import com.example.backendproject.repository.DepartementRepository;
 import com.example.backendproject.repository.EquipeRepository;
 import com.example.backendproject.repository.EtudiantRepository;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -72,7 +72,7 @@ public class EquipeServiceImp implements IEquipeService{
     }
 
     @Override
-    @Scheduled(fixedRate = 60000)
+    //@Scheduled(fixedRate = 60000)
     public void faireEvoluerEquipes() {
         List<Equipe> equipes = equipeRepository.findAll();
         List<Contrat> contratDepasseAn = contratRepository.contratDepasseAn();
